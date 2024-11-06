@@ -14,9 +14,6 @@ const Home = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    // if (input.firstName === "" || input.lastName === "") {
-    //   return;
-    // }
     let newData = { ...input };
 
     setFullName(newData.firstName + " " + newData.lastName);
@@ -47,7 +44,7 @@ const Home = () => {
         <button type="submit">Submit</button>
       </form>
 
-      {fullName ? <p>Full Name : {fullName}</p> : ""}
+      {fullName ? <p>Full Name : {input.firstName} {" "} {input.lastName}</p> : ""}
     </div>
   );
 };
