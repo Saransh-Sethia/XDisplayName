@@ -12,17 +12,18 @@ const Home = () => {
     setInput((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    if(input.firstName === "" || input.lastName === ""){
-        return;
-    }
-    let newData = { ...input };
-    setName(newData);
-    setInput({
-      firstName: "",
-      lastName: "",
-    });
+const handleSubmit = () => {
+  if(input.firstName === "" || input.lastName === ""){
+    return;
   };
+
+  let newData = {...input.firstName, ...input.lastName};
+  setName(newData);
+  setInput({
+    firstName:"",
+    lastName:""
+  })
+}
 
   return (
     <div>
@@ -46,16 +47,16 @@ const Home = () => {
           required="true"
         />
         <br />
-        <button  onClick={() => handleSubmit()}>
-          Submit
-        </button>
+        <button type="submit" onClick={() => handleSubmit()}>Submit</button>
       </form>
- 
-        <p>
-        Full Name: {name.firstName} {name.lastName}
-      </p>
       
  
+            <p>
+            Full Name: {name.firstName} {name.lastName}
+          </p>
+
+
+      
     </div>
   );
 };
