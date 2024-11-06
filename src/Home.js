@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Home = () => {
-  const [name, setName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [input, setInput] = useState({
     firstName: "",
     lastName: "",
@@ -12,23 +12,20 @@ const Home = () => {
     setInput((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    if (input.firstName === "" || input.lastName === "") {
-      return;
-    }
-
+  const submit = (e) => {
+    e.preventDefault();
+    // if (input.firstName === "" || input.lastName === "") {
+    //   return;
+    // }
     let newData = { ...input };
-    setName(newData);
-    setInput({
-      firstName: "",
-      lastName: "",
-    });
+
+    setFullName(newData.firstName + " " + newData.lastName);
   };
 
   return (
     <div>
       <h1>Full Name Display</h1>
-      <form>
+      <form onSubmit={submit}>
         <label>First Name: </label>
         <input
           type="text"
@@ -47,14 +44,10 @@ const Home = () => {
           required="true"
         />
         <br />
-        <button type="submit" onClick={() => handleSubmit()}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
 
-      <p>
-        Full Name: {name.firstName} {name.lastName}
-      </p>
+      {fullName ? <p>Full Name : {fullName}</p> : ""}
     </div>
   );
 };
