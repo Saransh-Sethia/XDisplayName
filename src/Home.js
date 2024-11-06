@@ -24,6 +24,7 @@ const Home = () =>    {
     
     return(
         <div>
+            <h1>Full Name Display</h1>
             <form>
                 <label>First Name: </label>
                 <input
@@ -43,9 +44,9 @@ const Home = () =>    {
                     required="true"
                     />
                 <br />
-                <button onClick={()=>handleSubmit()}>Submit</button>
+                <button type="submit" onClick={()=>handleSubmit()}>Submit</button>
             </form>
-            <p>{name.firstName} {" "} {name.lastName}</p>
+            <p>Full Name: {name.firstName} {" "} {name.lastName}</p>
         </div>
     )
 }
