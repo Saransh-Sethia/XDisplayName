@@ -44,7 +44,13 @@ const Home = () => {
         <button type="submit">Submit</button>
       </form>
 
-      {fullName ? <p>Full Name : {input.firstName} {" "} {input.lastName}</p> : ""}
+           {
+        fullName && (
+          <p>
+          Full Name: {input.firstName} {input.lastName}
+        </p>
+        )
+      }
     </div>
   );
 };
